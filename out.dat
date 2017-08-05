@@ -1,0 +1,15 @@
+Some text
+!My name is <REPLACE:name>, How are you <REPLACE:name2> ?
+My name is Thomas, How are you Bob ?! <REPLACED>
+
+Bla bla bla
+
+!<REPLACE:node_name> <REPLACE:nodes> <REPLACE:node_x>
+N_RE_SE_404 4 1! <REPLACED>
+N_RE_SE_404 7 2! <REPLACED>
+N_RE_SE_404 11 3! <REPLACED>
+
+!<REPLACE:door> <REPLACE:color>
+! Error in data input, data list length are not consistent
+
+...

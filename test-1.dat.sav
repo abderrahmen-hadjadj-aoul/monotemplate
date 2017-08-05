@@ -1,0 +1,10 @@
+Some text
+!My name is <REPLACE:name>, How are you <REPLACE:name2> ?
+
+Bla bla bla
+
+!<REPLACE:node_name> <REPLACE:nodes> <REPLACE:node_x>
+
+!<REPLACE:door> <REPLACE:color>
+
+...
