@@ -1,6 +1,5 @@
 """
 """
-# TODO:
 
 import sys
 import re
@@ -12,16 +11,12 @@ if len(sys.argv) < 3:
     print('Not enough input arguments')
     exit()
 
-data = dict()
-data['name'] = 'Thomas'
-data['name2'] = 'Bob'
+################################################################################
+# Options
 
-data['node_name'] = 'N_RE_SE_404'
-data['nodes'] = [4,7,11,55]
-data['node_x'] = [1,2,3, 70000]
+comment = {'begin':'<!--', 'end':'-->'}
 
-data['door'] = [1,2,3,4,5]
-data['color'] = ['blue', 'red', 'green', 'black']
+################################################################################
 
 errors = []
 
@@ -72,10 +67,10 @@ for in_line in in_lines:
         number_of_loop = 0
         error = '<ERROR> Data list length are not consistent.'
         errors.append(error)
-        out_lines.append('! ' + error + '\n')
+        out_lines.append(comment['begin'] + ' ' + error + comment['end'] + '\n')
     for i in range(0,number_of_loop):
         out_line = in_line
-        out_line = re.sub(r'^ *!(.*)', '\g<1>', out_line)
+        out_line = re.sub(r'^ *' + comment['begin'] + ' *(.*)' + comment['end'] + ' *', '\g<1>', out_line)
         out_line = out_line.replace('\n', '')
         for key in key_list:
             if key in data:
@@ -88,11 +83,11 @@ for in_line in in_lines:
                 out_line = out_line.replace('<REPLACE:' + key + '>', '')
         if len(key_list) > 0:
             if key in data:
-                out_lines.append(out_line + ' ! <REPLACED>\n')
+                out_lines.append(out_line + ' '  + comment['begin'] + ' <REPLACED> ' + comment['end'] + '\n')
             else:
                 error = '<ERROR> Key \'' + key + '\' not exiting.';
                 errors.append(error)
-                out_lines.append('! ' + error + '\n')
+                out_lines.append(comment['begin'] + ' ' + error + ' ' + comment['end'] + '\n')
 
 out_file = open(out_file_path, 'w')
 for out_line in out_lines:

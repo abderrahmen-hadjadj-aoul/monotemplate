@@ -1,6 +1,7 @@
 {
-  "node_name": "N_RE_SE_505____op",
-  "name": "Pierre",
+  "node_name": "NODE_NAME",
+  "name": "Pierre Dolor",
+  "name2": "Benoit",
   "nodes": [4,7,11,55],
   "node_x": [1,2,3, 70000]
 }
